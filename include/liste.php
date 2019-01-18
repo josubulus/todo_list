@@ -12,6 +12,7 @@ function todoStatut($statut){//fonction passer en paramètre statut : 0 = non ch
       <ul>
         <li><h2><input type="checkbox" name="titre" value="titre" /><?php echo htmlspecialchars($note['titre_note']); ?></h2></li>
     <?php
+
           //parcour tout les todo corresspondant à la note ci dessus
               $req_todo = $bdd->prepare('SELECT * FROM todo WHERE id_note=:id_ok');
               $req_todo->execute(array('id_ok' => $note['id']));
@@ -23,11 +24,12 @@ function todoStatut($statut){//fonction passer en paramètre statut : 0 = non ch
         </ul>
       </form>
   <?php
-  include('include/form_todo.php');
+  include('include/nav_liste.php');
+  (isset($_GET) && $_GET['idNote'] == $note['id'])?    include('include/form_todo.php') : null;
     }//todo
    ?>
   <div>
-    <?php include('include/form_todo.php'); ?>
+    <?php (isset($_GET) && $_GET['idNote'] == $note['id'])? include('include/form_todo.php') : null; ?>
   </div>
    <?php
   }//box note + todo

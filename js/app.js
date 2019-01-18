@@ -20,6 +20,6 @@ function affichageDom(section,lienSection, conteneurDom){
   };
   document.getElementById(lienSection).addEventListener('click',contenuDom);
 }
-
+dom.innerHTML = liste_dom;
 affichageDom(liste_dom, 'liste_lien', dom);
 affichageDom(ajout_dom, 'ajout_lien', dom);
