@@ -1,5 +1,6 @@
 <?php session_start();
   require 'class/Formulaire.php';
+  /*require 'class/Todo.php';*/
 
 ?>
 <!DOCTYPE html>
@@ -16,6 +17,9 @@
 
       </nav>
       <section>
+          <div>
+            <?php include ('include/liste.php') ?>
+          </div>
           <div>
             <?php include('include/ajout.php'); ?>
           </div>
