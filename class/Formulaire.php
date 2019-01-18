@@ -57,6 +57,15 @@ class Form{
 <input type="text" name="'.$name.'" value="'.$this->getValue($name).'" required />
 ');
 }
+/**
+@method appeler un input text
+@parameters : string nom form puis value form transmettre des données caché
+*/
+  public function inputHide($name,$value){
+  return $this->surround('
+<input style="display:none;" type="text" name="'.$name.'" value="'.$value.'" />
+');
+}
 
 /**
 @method appeler un input mail
