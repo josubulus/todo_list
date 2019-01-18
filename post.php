@@ -1,11 +1,26 @@
 <?php
-
+include('include/login_bdd.php');
 
 //    ajouter une todo a une todolist
 if (isset($_POST['id_note_for_todo'])) {
-  foreach ($_POST as $key => $value) {
+  /*
+  todo / sdldze;erld
+  id_note_for_todo / 1
+  button /
+  todo / sdldze;erld
+  id_note_for_todo / 1
+  button /
+  */
+  $req = $bdd->prepare('INSERT INTO todo(todo, date_todo, statut, id_note) VALUES (:todo, now(), 0, :id_note)');
+  $req->execute(array(
+    'todo' => $_POST['todo'],
+    'id_note' => $_POST['id_note_for_todo']
+  ));
+
+
+  /*foreach ($_POST as $key => $value) {
     echo $key . ' / ' . $value . '<br />';
-  }
+  }*/
 }
 
 //    checked note et todo a différencier en fonction de l'index post id
@@ -24,13 +39,26 @@ if (isset($_POST['ajout'])) {
 }
 
 //update d'une todo
+/*
+todo / choses a faire
+id_todo_for_update / 7
+button /
+*/
 
-foreach ($_POST as $key => $value) {
-  echo $key . ' / ' . $value . '<br />';
+/*
+titre_note / première note
+id_note_for_update / 1
+button /
+*/
+if (isset($_POST['id_note_for_update']) || isset($_POST['id_todo_for_update'])) {
+  foreach ($_POST as $key => $value) {
+    echo $key . ' / ' . $value . '<br />';
+  }
+
 }
 
 
 
 
-/*header('location:index.php');*/
+header('location:index.php');
  ?>
