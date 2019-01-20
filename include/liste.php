@@ -19,7 +19,7 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
           <?php
           echo htmlspecialchars($note['titre_note']);
           echo $checkOk->submit('ok', 'note');
-          ?> <button id="note_suppr" type="button" name="suppr">suppr</button> <?php
+          ?> <a href="suppr.php?note=<?php echo $note['id']; ?>&amp;titre=<?php echo $note['titre_note']; ?>">suppr</a> <?php
           include('include/nav_liste.php');
           ?>
           </p>
@@ -42,6 +42,7 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
                             <?php
                             echo htmlspecialchars($todo['todo']);
                               echo $checkOk->submit('ok', 'todo');
+                              ?> <a href="suppr.php?todo=<?php echo $todo['id']; ?>&amp;titre=<?php echo $todo['todo']; ?>">suppr</a> <?php
                               include('include/nav_liste.php');
                               ?>
                             </p>
