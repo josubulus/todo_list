@@ -4,7 +4,7 @@ include('include/login_bdd.php');
 
 function todoStatut(){//fonction pour l'instant pas de paramètres
   include('include/login_bdd.php');
-  $req = $bdd->query('SELECT * FROM note WHERE id>0 ');
+  $req = $bdd->query('SELECT * FROM note WHERE id>0 ORDER BY id DESC');
   while ($note = $req->fetch()) {//note + todo
     $checkOk = new Form();
     $checkOk->surround = 'em';
@@ -30,7 +30,7 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
                   <?php
 
                       //parcour tout les todo correspondant à la note ci dessus
-                          $req_todo = $bdd->prepare('SELECT * FROM todo WHERE id_note=:id_ok');
+                          $req_todo = $bdd->prepare('SELECT * FROM todo WHERE id_note=:id_ok  ORDER BY id DESC');
                           $req_todo->execute(array('id_ok' => $note['id']));
                           while ($todo = $req_todo->fetch()) {// todo
                     ?>
@@ -43,7 +43,6 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
                             echo htmlspecialchars($todo['todo']);
                               echo $checkOk->submit('ok', 'todo');
                               ?> <a href="suppr.php?todo=<?php echo $todo['id']; ?>&amp;titre=<?php echo $todo['todo']; ?>">suppr</a> <?php
-                              include('include/nav_liste.php');
                               ?>
                             </p>
                           </form>

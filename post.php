@@ -66,24 +66,34 @@ if (isset($_POST['ajout'])) {
 
 }
 
-//update d'une todo
-/*
-todo / choses a faire
-id_todo_for_update / 7
-button /
-*/
 
-/*
-titre_note / première note
-id_note_for_update / 1
-button /
-*/
-if (isset($_POST['id_note_for_update']) || isset($_POST['id_todo_for_update'])) {
-  foreach ($_POST as $key => $value) {
-    echo $key . ' / ' . $value . '<br />';
-  }
-
-}
+//     update d'une todo
+          //update note :
+          if (isset($_POST['id_note_for_update'])) {
+            /*
+            titre_note / première note
+            id_note_for_update / 1
+            button /
+            */
+          $req = $bdd->prepare('UPDATE note SET titre_note=:update_note WHERE id=:id_note');
+          $req->execute(array(
+            'update_note' => $_POST['titre_note'],
+            'id_note' => $_POST['id_note_for_update']
+          ));
+          }
+          //update todo : 
+          if (isset($_POST['id_todo_for_update'])) {
+            /*
+            todo / choses a faire
+            id_todo_for_update / 7
+            button /
+            */
+          $req = $bdd->prepare('UPDATE todo SET todo=:update_todo WHERE id=:id_todo');
+          $req->execute(array(
+            'update_todo' => $_POST['todo'],
+            'id_todo' => $_POST['id_todo_for_update']
+          ));
+          }
 
 // supprimer une todo ou une note
 if (isset($_POST['suppr']) && $_POST['suppr'] == 'note' && isset($_POST['oui'])) {

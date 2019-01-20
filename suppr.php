@@ -3,11 +3,11 @@
   <?php
 function formSuppr($leGet, $truckasuppr){
   require 'class/Formulaire.php';
-  $oui = new Form();
-  echo $oui->inputHide('suppr', $truckasuppr);
-  echo $oui->inputHide('id', $leGet);
-  echo $oui->submit('oui', 'oui');
-  echo $oui->submit('non', 'non');
+  $supprForm = new Form();
+  echo $supprForm->inputHide('suppr', $truckasuppr);
+  echo $supprForm->inputHide('id', $leGet);
+  echo $supprForm->submit('oui', 'oui');
+  echo $supprForm->submit('non', 'non');
 }
 if (isset($_GET['note']) && isset($_GET['titre'])) {
   formSuppr(intval($_GET['note']), 'note');
