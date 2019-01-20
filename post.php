@@ -85,6 +85,8 @@ if (isset($_POST['id_note_for_update']) || isset($_POST['id_todo_for_update'])) 
 
 }
 
+// supprimer une todo ou une note
+
 
 
 

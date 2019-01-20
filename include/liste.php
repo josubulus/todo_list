@@ -19,6 +19,7 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
           <?php
           echo htmlspecialchars($note['titre_note']);
           echo $checkOk->submit('ok', 'note');
+          ?> <button id="note_suppr" type="button" name="suppr">suppr</button> <?php
           include('include/nav_liste.php');
           ?>
           </p>
