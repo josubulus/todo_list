@@ -1,5 +1,5 @@
 <h1>êtes-vous sûr de vouloir supprimer : <?php echo htmlspecialchars($_GET['titre']) ?></h1>
-<form action="#" method="post">
+<form action="post.php" method="post">
   <?php
 function formSuppr($leGet, $truckasuppr){
   require 'class/Formulaire.php';
@@ -23,7 +23,7 @@ else {
    ?>
 </form>
 <?php
-foreach ($_POST as $key => $value) {
+/*foreach ($_POST as $key => $value) {
   echo $key . ' / ' . $value . '<br />';
-}
+}*/
  ?>

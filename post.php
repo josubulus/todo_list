@@ -86,7 +86,29 @@ if (isset($_POST['id_note_for_update']) || isset($_POST['id_todo_for_update'])) 
 }
 
 // supprimer une todo ou une note
+if (isset($_POST['suppr']) && $_POST['suppr'] == 'note' && isset($_POST['oui'])) {
+/*
+suppr / todo ou suppr / note
+id / 7
+oui / oui  ou non / non
+*/
+      $req = $bdd->prepare('DELETE FROM note WHERE id=:id_note');
+      $req->execute(array(
+        'id_note' => $_POST['id']
+      ));
 
+
+      $req = $bdd->prepare('DELETE FROM todo WHERE id_note=:id_note');
+      $req->execute(array(
+        'id_note' => $_POST['id']
+      ));
+
+}elseif (isset($_POST['suppr']) && $_POST['suppr'] == 'todo' && isset($_POST['oui'])) {
+      $req = $bdd->prepare('DELETE FROM todo WHERE id=:id_todo');
+      $req->execute(array(
+        'id_todo' => $_POST['id']
+      ));
+}
 
 
 
