@@ -126,8 +126,8 @@ public function select($name,  $contenu,$selected = null ,$label = null){
 @method appeler un bouton de validation
 */
 
- public function submit($value){
-   return $this->surround('<button type="submit" name="button">' . $value . '</button>');
+ public function submit($value, $name = null){
+   return $this->surround('<input type="submit" name="' . $name . '" value ="' . $value . '" />');
  }
 
 

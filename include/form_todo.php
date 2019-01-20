@@ -1,6 +1,8 @@
 <?php
 if (!empty($todo)) {
-  $form_update_todo = new Form($todo); ?>
+  $form_update_todo = new Form($todo);
+  $form_update_todo->surround = 'em';
+  ?>
   <form action="post.php" method="post">
    <?php
    echo $form_update_todo->input('todo', 'A faire :');
@@ -9,8 +11,10 @@ if (!empty($todo)) {
     ?>
   </form>
   <?php
-}else {
-  $form_update = new Form($note); ?>
+} else {
+  $form_update = new Form($note);
+  $form_update->surround = 'em';
+  ?>
   <form action="post.php" method="post">
     <?php
       echo $form_update->input('titre_note', 'Titre Note');

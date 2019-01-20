@@ -17,19 +17,47 @@ if (isset($_POST['id_note_for_todo'])) {
     'id_note' => $_POST['id_note_for_todo']
   ));
 
-
-  /*foreach ($_POST as $key => $value) {
-    echo $key . ' / ' . $value . '<br />';
-  }*/
 }
 
 //    checked note et todo a différencier en fonction de l'index post id
 //   faire une condition pour renseigner la valeur statut null = 0
-if (isset($_POST['id_note_for_checked']) || $_POST['id_todo_for_checked']) {
-  foreach ($_POST as $key => $value) {
-    echo $key . ' / ' . $value . '<br />';
-  }
+if (isset($_POST['id_note_for_checked']) && isset($_POST['note'])) {
+  /*
+  id_note_for_checked / 1
+  id_todo_for_checked / 13
+  statut / 1
+  button /
+  */
+
+$req = $bdd->prepare('UPDATE note SET statut=:statut WHERE id=:id_note ');
+$req->execute(array(
+  'statut' => (!isset($_POST['statut']))? 1 : $_POST['statut'],
+  'id_note' => $_POST['id_note_for_checked']
+));
+
+
 }
+if (isset($_POST['id_todo_for_checked']) && isset($_POST['todo'])){
+$req = $bdd->prepare('UPDATE todo SET statut=:statut WHERE id=:id_note ');
+  $req->execute(array(
+    'statut' => (!isset($_POST['statut']))? 1 : $_POST['statut'],
+    'id_note' => $_POST['id_todo_for_checked']
+  ));
+
+  /*foreach ($_POST as $key => $value) {
+    echo $key . ' / ' . $value . '<br />';
+  }*/
+
+
+
+
+}
+
+
+
+
+
+
 
 // ajouter une note et une première todo
 if (isset($_POST['ajout'])) {
