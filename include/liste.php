@@ -17,8 +17,8 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
       <ul>
         <li>
           <p><input type="checkbox" name="statut" value= 2  <?php echo $checked = ($note['statut'] == 2)? 'checked': null; ?> />
-          <?php
-          echo htmlspecialchars($note['titre_note']);
+
+          <?php echo htmlspecialchars($note['titre_note']); 
           echo $checkOk->submit('ok', 'note');
           ?> <a href="suppr.php?note=<?php echo $note['id']; ?>&amp;titre=<?php echo $note['titre_note']; ?>">suppr</a> <?php
           include('include/nav_liste.php');
@@ -31,12 +31,12 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
                   <?php
 
                       //parcour tout les todo correspondant à la note ci dessus
+
                           $req_todo = $bdd->prepare('SELECT * FROM todo WHERE id_note=:id_ok  ORDER BY id DESC');
                           $req_todo->execute(array('id_ok' => $note['id']));
                           while ($todo = $req_todo->fetch()) {// todo
                     ?>
                         <li>
-                          <div class ="boxTodo">
                             <form action="post.php" method="post">
                             <p><input type="checkbox" name="statut" value = 2 <?php echo $checked = ($todo['statut'] == 2)? 'checked': null; ?> />
                               <!--     envoie l'id de la todo a checked-->
@@ -48,7 +48,6 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
                                 ?>
                               </p>
                             </form>
-                          </div>
                           </li>
 
 
@@ -60,7 +59,6 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
               </ul><!-- todo fermeture-->
 
       </ul><!-- note fermeture -->
-<?php  ?>
   <div>
     <?php
     (isset($_GET['idNote']) && $_GET['idNote'] == $note['id'] && $_GET['newTodo'] == 1)? include('include/form_ajout_todo.php') : null;
