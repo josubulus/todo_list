@@ -14,12 +14,18 @@
     <header>
       <h1>Todo list </h1>
       <nav>
-        <?php include('include/nav.php'); ?>
+        <div class="nav">
+          <?php include('include/nav.php'); ?>
+        </div>
       </nav>
     </header>
     <section><!--    tout les contenu stocké en js    -->
-        <div id = "liste">
-          <?php include ('include/liste.php') ?>
+      <?php include('include/liste.php') //fonction (todoStatut) d'affichage de la liste ?>
+        <div id = "listeFait">
+          <?php todoStatut(2); ?>
+        </div>
+        <div id="listeAFaire">
+          <?php todoStatut(1); ?>
         </div>
         <div id = "ajout">
           <?php include('include/ajout.php'); ?>

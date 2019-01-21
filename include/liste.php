@@ -2,15 +2,16 @@
 //lister le contenu et faire une boucle qui appelle 1 note avec ses todo correspondant.
 include('include/login_bdd.php');
 
-function todoStatut(){//fonction pour l'instant pas de paramètres
+function todoStatut($statut){//fonction pour l'instant pas de paramètres
   include('include/login_bdd.php');
-  $req = $bdd->query('SELECT * FROM note WHERE id>0 ORDER BY id DESC');
+  $req = $bdd->prepare('SELECT * FROM note WHERE id>0 and statut=:statut ORDER BY id DESC');
+  $req->execute(array('statut'=>$statut));
   while ($note = $req->fetch()) {//note + todo
 
     $checkOk = new Form();
     $checkOk->surround = 'em';
-
     ?>
+    <div class="boxListe">
     <form action="post.php" method="post"><!-- ouverture form case a cocher -->
       <!--  envoie l'id de la note a checked -->
       <?php echo $checkOk->inputHide('id_note_for_checked', $note['id']); ?>
@@ -18,7 +19,7 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
         <li>
           <p><input type="checkbox" name="statut" value= 2  <?php echo $checked = ($note['statut'] == 2)? 'checked': null; ?> />
 
-          <?php echo htmlspecialchars($note['titre_note']); 
+          <?php echo '<em class = "titreTodo" >' . htmlspecialchars($note['titre_note']) . '</em>';
           echo $checkOk->submit('ok', 'note');
           ?> <a href="suppr.php?note=<?php echo $note['id']; ?>&amp;titre=<?php echo $note['titre_note']; ?>">suppr</a> <?php
           include('include/nav_liste.php');
@@ -65,12 +66,13 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
     (isset($_GET['idNote']) && $_GET['idNote'] == $note['id'] && !isset($_GET['newTodo']))? include('include/form_todo.php') : null;
     ?>
   </div>
+</div>
    <?php
   }//box note + todo
 
 }//fonction passer en paramètre statut : 0 = non check  1 = check
 
-todoStatut();
+
 
 
 ?>

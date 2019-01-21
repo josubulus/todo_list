@@ -1,0 +1,44 @@
+/* config générale */
+body {
+  padding: 10px;
+}
+h1{
+  text-align: center;
+  font-size: 1.2em;
+}
+h2{
+  font-size: 1.0em;
+}
+p{
+  font-size: 0.8em;
+  margin: auto;
+  padding: 1px;
+}
+a {
+  margin: .5em;
+}
+button {
+  margin: .4em;
+}
+/*     nav     */
+.nav {
+  display: flex;
+  justify-content: center;
+}
+/*  box conteneur JS :  */
+#dom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*   mise en page de la liste  */
+.boxListe {
+  width: 70%;
+  border: 1px black solid;
+  padding: 1.2em;
+  margin: .2em;
+}
+.titreTodo {
+  font-size: 1.4em;
+  font-weight: bold;
+}
