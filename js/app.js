@@ -23,3 +23,5 @@ function affichageDom(section,lienSection, conteneurDom){
 dom.innerHTML = liste_dom;
 affichageDom(liste_dom, 'liste_lien', dom);
 affichageDom(ajout_dom, 'ajout_lien', dom);
+
+console.log(ajout.innerHTML);

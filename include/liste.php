@@ -6,6 +6,7 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
   include('include/login_bdd.php');
   $req = $bdd->query('SELECT * FROM note WHERE id>0 ORDER BY id DESC');
   while ($note = $req->fetch()) {//note + todo
+
     $checkOk = new Form();
     $checkOk->surround = 'em';
 
@@ -68,6 +69,7 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
   </div>
    <?php
   }//box note + todo
+
 }//fonction passer en paramètre statut : 0 = non check  1 = check
 
 todoStatut();
