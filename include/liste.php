@@ -35,17 +35,19 @@ function todoStatut(){//fonction pour l'instant pas de paramètres
                           while ($todo = $req_todo->fetch()) {// todo
                     ?>
                         <li>
-                          <form action="post.php" method="post">
-                          <p><input type="checkbox" name="statut" value = 2 <?php echo $checked = ($todo['statut'] == 2)? 'checked': null; ?> />
-                            <!--     envoie l'id de la todo a checked-->
-                            <?php echo $checkOk->inputHide('id_todo_for_checked', $todo['id']);?>
-                            <?php
-                            echo htmlspecialchars($todo['todo']);
-                              echo $checkOk->submit('ok', 'todo');
-                              ?> <a href="suppr.php?todo=<?php echo $todo['id']; ?>&amp;titre=<?php echo $todo['todo']; ?>">suppr</a> <?php
-                              ?>
-                            </p>
-                          </form>
+                          <div class ="boxTodo">
+                            <form action="post.php" method="post">
+                            <p><input type="checkbox" name="statut" value = 2 <?php echo $checked = ($todo['statut'] == 2)? 'checked': null; ?> />
+                              <!--     envoie l'id de la todo a checked-->
+                              <?php echo $checkOk->inputHide('id_todo_for_checked', $todo['id']);?>
+                              <?php
+                              echo htmlspecialchars($todo['todo']);
+                                echo $checkOk->submit('ok', 'todo');
+                                ?> <a href="suppr.php?todo=<?php echo $todo['id']; ?>&amp;titre=<?php echo $todo['todo']; ?>">suppr</a> <?php
+                                ?>
+                              </p>
+                            </form>
+                          </div>
                           </li>
 
 
