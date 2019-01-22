@@ -45,7 +45,7 @@ function todoStatut($statut){//fonction pour l'instant pas de paramètres
                               <?php
                               echo htmlspecialchars($todo['todo']);
                                 echo $checkOk->submit('ok', 'todo');
-                                ?> <a href="suppr.php?todo=<?php echo $todo['id']; ?>&amp;titre=<?php echo $todo['todo']; ?>">suppr</a> <?php
+                                ?> <a href="suppr.php?todo=<?php echo nl2br($todo['id']); ?>&amp;titre=<?php echo $todo['todo']; ?>">suppr</a> <?php
                                 ?>
                               </p>
                             </form>

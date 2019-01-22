@@ -77,11 +77,11 @@ if (isset($_POST['ajout'])) {
             */
           $req = $bdd->prepare('UPDATE note SET titre_note=:update_note WHERE id=:id_note');
           $req->execute(array(
-            'update_note' => $_POST['titre_note'],
+            'update_note' => trim($_POST['titre_note']),
             'id_note' => $_POST['id_note_for_update']
           ));
           }
-          //update todo : 
+          //update todo :
           if (isset($_POST['id_todo_for_update'])) {
             /*
             todo / choses a faire
@@ -90,7 +90,7 @@ if (isset($_POST['ajout'])) {
             */
           $req = $bdd->prepare('UPDATE todo SET todo=:update_todo WHERE id=:id_todo');
           $req->execute(array(
-            'update_todo' => $_POST['todo'],
+            'update_todo' => trim($_POST['todo']),
             'id_todo' => $_POST['id_todo_for_update']
           ));
           }
