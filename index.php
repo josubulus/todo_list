@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-      <h1>Todo list </h1>
+      <h1 class="titre">Todo list </h1>
       <nav>
         <div class="nav">
           <?php include('include/nav.php'); ?>

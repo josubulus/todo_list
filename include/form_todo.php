@@ -5,7 +5,7 @@ if (!empty($todo)) {
   ?>
   <form action="post.php" method="post">
    <?php
-   echo $form_update_todo->input('todo', 'A faire :');
+   echo $form_update_todo->textarea('todo', 'A faire :');
    echo $form_update_todo->inputHide('id_todo_for_update', $todo['id']);
    echo $form_update_todo->submit('mettre à jour');
     ?>

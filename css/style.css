@@ -1,8 +1,15 @@
 /* config générale */
 :root {
   --cadre-color: black;
+  --largeur-élement-du-ctr: 70%;
 }
-
+.titre {
+  width: var(--largeur-élement-du-ctr, 70%);
+  background-color: black;
+  color: white;
+  margin: auto;
+  padding: 5px
+}
 
 body {
   padding-top: 20px;
@@ -25,8 +32,9 @@ a {
 /*    général des boutons   */
 button {
   margin: .4em;
-  padding: .3em;
-  border-radius: 1px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
 [type='submit'] {
   padding: .8px;
@@ -50,7 +58,7 @@ button {
 }
 /*   mise en page de la liste  */
 .boxListe {
-  width: 70%;
+  width: var(--largeur-élement-du-ctr, 70%);
   border: .3px var(--cadre-color, black) solid;
   padding: 1.2em;
   margin: .2em;
