@@ -21,6 +21,7 @@ h1{
 h2{
   font-size: 1.0em;
 }
+
 p{
   font-size: 0.8em;
   margin: auto;
@@ -40,7 +41,14 @@ button {
   padding: .8px;
   margin: 2px;
   border-radius: 3px;
-
+}
+button:hover, [type='submit']:hover {
+  transform: scale(1.2);
+}
+hr {
+  width: 70%;
+  position: relative;
+  right: 4em;
 }
 /*     nav     */
 .nav {
@@ -64,6 +72,7 @@ button {
   margin: .2em;
   box-shadow: 0 4px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+
 .titreTodo {
   font-size: 1.4em;
   font-weight: bold;

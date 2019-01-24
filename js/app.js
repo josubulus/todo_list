@@ -7,7 +7,7 @@ liste_lien = document.getElementById('liste_lien');
 ajout_lien = document.getElementById('ajout_lien');
 dom = document.getElementById('dom');
 
-// stoquer les contenus
+// stocker les contenus
 var listeFait_dom,listeAFaire_dom , ajout_dom,
 listeFait_dom = listeFait.innerHTML;
 listeFait.innerHTML = "";

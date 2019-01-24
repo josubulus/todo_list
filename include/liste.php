@@ -29,8 +29,8 @@ function todoStatut($statut){//fonction pour l'instant pas de paramètres
       </form>
 
                 <ul> <!--sous liste pour les todo a réalisé-->
+                  <hr />
                   <?php
-
                       //parcour tout les todo correspondant à la note ci dessus
 
                           $req_todo = $bdd->prepare('SELECT * FROM todo WHERE id_note=:id_ok  ORDER BY id DESC');
