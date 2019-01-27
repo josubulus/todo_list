@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('include/login_bdd.php');
 
 //    ajouter une todo a une todolist
@@ -122,5 +123,5 @@ oui / oui  ou non / non
 
 
 
-header('location:index.php');
+header('location:index.php?page=' . $_SESSION['page'] . '');
  ?>

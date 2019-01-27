@@ -2,10 +2,13 @@
 //lister le contenu et faire une boucle qui appelle 1 note avec ses todo correspondant.
 include('include/login_bdd.php');
 
-function todoStatut($statut){//fonction pour l'instant pas de paramètres
+function todoStatut($statut, $page = null){//fonction pour l'instant pas de paramètres
   include('include/login_bdd.php');
-  $req = $bdd->prepare('SELECT * FROM note WHERE id>0 and statut=:statut ORDER BY id DESC');
-  $req->execute(array('statut'=>$statut));
+  $page_int = (!isset($page) || $page == 0)? 0 : intval($page);
+  $req = $bdd->prepare('SELECT * FROM note WHERE id>0 and statut=:statut ORDER BY id DESC LIMIT :page, 2');
+  $req->bindValue(":page", $page_int, PDO::PARAM_INT );
+  $req->bindValue(":statut", $statut, PDO::PARAM_INT );
+  $req->execute();
   while ($note = $req->fetch()) {//note + todo
 
     $checkOk = new Form();
@@ -70,7 +73,11 @@ function todoStatut($statut){//fonction pour l'instant pas de paramètres
    <?php
   }//box note + todo
 
+
+
+
 }//fonction passer en paramètre statut : 0 = non check  1 = check
+
 
 
 
