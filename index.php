@@ -39,7 +39,8 @@
       </div>
       <div>  <!--test pagination-->
         <?php
-        //dev pagination :
+        //dev a mettre dans un include rajouter un paramètre de statut pour les truck fait !
+        //ajouter le choix de l'ordre des todo dans la fonction liste 
         function page($statut){
           $i=0;
           include('include/login_bdd.php');
